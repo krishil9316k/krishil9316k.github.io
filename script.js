@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const METRIC_ENDPOINTS = {
     ruby: "https://your-ruby-server.com/status",
     jivan: "https://your-jivanroshni-server.com/status",
-    haven: "https://your-haven-server.com/status",
-    rubybot: "https://your-rubybot-server.com/status"
+    haven: "https://distant-penny-canon.ngrok-free.dev/status", // 👈 Haven Imperium is locked in!
+    rubybot: "https://petite-cases-carry.loca.lt/status"
 };
 
 async function syncDashboardData() {
