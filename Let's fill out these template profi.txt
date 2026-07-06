@@ -1,0 +1,62 @@
+Let's fill out these template profiles based precisely on the layout we've built for your system so far!
+
+BOT 1: RUBY AI
+Bot Type: Multimodal AI Agent (Voice, Camera, and Screen Capture)
+
+What does it do? It acts as a real-time conversational companion that communicates naturally using text or voice in English, Hindi, and Gujarati. It handles custom automated actions like playing music on YouTube, searching Wikipedia, storing long-term memory facts in an SQL database, managing smart home devices, taking in system hardware performance telemetry, and running native Windows automation scripts.
+
+Tech Stack used: Python (Backend Core), Dart & Flutter (Desktop Native GUI), LiveKit Agents SDK (WebRTC Streaming Core), Gemini Realtime Multimodal API (gemini-2.5-flash-native-audio-preview), Silero VAD (Voice Activity Detection), Flet (Background Admin Python Dashboard Interface), and SQLite (Long-Term Memory database layer).
+
+What should the dashboard show? The native Windows Flutter GUI contains an "Audio System Control Panel" with connection status displays, audio default stream pipelines, explicit start buttons for the webcam video renderer feed, and a native multi-screen desktop selection dialog workspace. The background python console maps out color-changing responsive orb scales (Breathe, Listening, Speaking, and Idle states) and scrolling terminal event tracks.
+
+Code Assistant Extension 
+Bot Type: Integrated Native IDE & Desktop Code Assistant
+
+What does it do? (This will be the phase we tackle after the Android port! It will scan code files, execute syntax diagnostics, debug compiler errors natively inside the workspace, and generate snippets directly upon voice command.)
+
+Tech Stack used: Python, Dart, Flutter, Gemini Developer API, and local workspace file parsers.
+
+What should the dashboard show? File tree explorers, code formatting block panels, real-time debugging status errors, and interactive text console logs.
+BOT 2: JIVANROSHNI
+Bot Type: Discord Self-Bot Music Player
+
+What does it do? Connects to Discord voice channels via user account tokens to stream high-fidelity audio. It parses Spotify tracking links directly (automatically stripping tracking data parameters), falls back to SoundCloud for native HD audio matching when given plain text song names, features dual-row interactive button layouts (Pause, Resume, Skip, Stop), and includes live toggleable audio processing effects like Bassboost and Nightcore.
+
+Tech Stack used: Node.js (ESM), Discord.js v14, Discord-Player v7, @discord-player/extractor (Spotify & SoundCloud bridges), libsodium-wrappers (Native voice encryption), ffmpeg-static (Audio processing & filters), and dotenv.
+
+What should the dashboard show? * A live "Online" / "Streaming" status indicator showing which voice channel the bot is currently active in.
+
+An Active Audio Filter readout (e.g., showing if Bassboost or Nightcore is turned on/off).
+
+Current Track Metadata display showing the song title, artist, duration, and album art currently being streamed.
+
+A real-time System Terminal Log view to track any backend extraction adjustments or API handshakes without opening PowerShell.
+
+
+
+What does it do? (e.g., An automated AI chat companion, a 24/7 radio looping stream, or an automated moderation assistant)
+
+Tech Stack used: (e.g., Python, OpenAI API, Express.js)
+
+What should the dashboard show? (e.g., Active status, execution logs, system metrics)
+BOT 3: Haven Imperium
+Bot Type: Discord  ALL IN ONE BOT  & Community Economy Engine
+
+What does it do? It manages complete server authority, moderation security with automated user DM alerts, button-based targeted ticket desks (Loans & Seva Kendra), dynamic temporary voice rooms, voice level grinding multipliers with role milestone awards, family lineage structures (dynasty marriages & adoptions), and a multi-purchasing commercial tycoon asset economy (companies, capped tier-20 science labs, businesses with interactive validation dropdowns, daily allowance tracking, and robber heists).
+
+Tech Stack used: Node.js, Discord.js (v14), SQLite3 (Local Ledger File System Embed), ffmpeg-static (Voice State Architecture Hooks).
+
+What should the dashboard show? * Live Global Metrics: Total managed server count, total registered member count, a real-time system performance output gauge, and an explicit green "Online" indicator.
+
+Economy & Activity Overview: Combined total of coins circulating inside server wallets/vaults, a summary chart tracking active voice activity XP distribution, and an active ticket queue stream count.
+
+Direct Interaction Assets: A permanent button link to invite the instance to secondary nodes and a live embedded window streaming active moderation logs or security alerts.
+
+BOT 4: Ruby DISCORD BOT 
+Bot Type: Discord Bot
+
+What does it do? Ruby is an all-in-one powerhouse bot for your community. She handles auto-moderation, manages a fully functional support ticket system FOR MY EDITING AND BOTS SELLING BUSINESS ON MY SERVER , runs an interactive economy and leveling system (with automatic role rewards), and features a complete music player for voice channels.
+
+Tech Stack used: Node.js, discord.js, discord-player, @discord-player/extractor, dotenv, and fs (for local JSON database management).
+
+What should the dashboard show? A live "Online" status indicator, total server member count, the number of active music queues, a leaderboard preview of the top XP earners, and a direct "Invite Ruby" button.
