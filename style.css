@@ -298,3 +298,59 @@ nav a:hover {
     background: rgba(179, 161, 201, 0.1);
     color: var(--text-muted);
 }
+
+/* Color updates for the dashboards */
+.dashboard-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+    background: rgba(7, 2, 13, 0.7);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 210, 255, 0.08);
+}
+
+.metric-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+/* Accent Glow Signatures */
+.ai-glow { color: var(--accent-purple) !important; filter: drop-shadow(0 0 8px var(--accent-purple)); }
+.music-glow { color: #FF007F !important; filter: drop-shadow(0 0 8px #FF007F); }
+.discord-glow { color: #5865F2 !important; filter: drop-shadow(0 0 8px #5865F2); }
+.ruby-bot-glow { color: #E0115F !important; filter: drop-shadow(0 0 8px #E0115F); }
+
+/* Invite mini link */
+.invite-mini-btn {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid var(--accent-purple);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.invite-mini-btn:hover {
+    background: var(--accent-purple);
+    color: #fff;
+    box-shadow: 0 0 8px var(--accent-purple);
+}
