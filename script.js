@@ -26,13 +26,59 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==========================================
 // 2. LIVE BOT DATA STREAM ENDPOINTS (LOCAL_TUNNEL Links)
 // ==========================================
-const METRIC_ENDPOINTS = {
-    ruby: "https://your-ruby-server.com/status",
-    jivan: "https://sweet-rabbits-enter.loca.lt/status", // üí™ JIVANROSHNI link updated!
-    haven: "https://petite-paws-push.loca.lt/status", 
-    rubybot: "https://petite-cases-carry.loca.lt/status"
-};
+// Point your entire dashboard feed directly to your new permanent ngrok dev link
+const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
 
+async function syncDashboardData() {
+    try {
+        let res = await fetch(CENTRAL_API);
+        if (!res.ok) throw new Error(`HTTP Error Status: ${res.status}`);
+        let data = await res.json();
+        
+        // --- UPDATE DISCORD MUSIC CORE (JIVANROSHNI) ---
+        let jivanBadge = document.getElementById("jivan-status"); // Ensure this matches your HTML element ID
+        if (jivanBadge) {
+            jivanBadge.className = "status-badge online";
+            jivanBadge.innerText = "● Online";
+        }
+        document.getElementById("jivan-filter").innerText = data.jivan.filter;
+        // Update other metrics like guilds or member counts here if your HTML supports them
+
+        // --- UPDATE TYCOON ENGINE (HAVEN IMPERIUM) ---
+        let havenBadge = document.getElementById("haven-status");
+        if (havenBadge) {
+            havenBadge.className = "status-badge online";
+            havenBadge.innerText = "● Online";
+        }
+        document.getElementById("haven-coins").innerText = data.haven.totalCoins;
+        document.getElementById("haven-servers").innerText = data.haven.guilds;
+
+        // --- UPDATE BUSINESS AUTOMATION (RUBY DISCORD BOT) ---
+        let rubybotBadge = document.getElementById("rubybot-status");
+        if (rubybotBadge) {
+            rubybotBadge.className = "status-badge online";
+            rubybotBadge.innerText = "● Online";
+        }
+        document.getElementById("rubybot-queues").innerText = data.rubybot.activeQueues;
+        document.getElementById("rubybot-users").innerText = data.rubybot.memberCount;
+
+    } catch (error) {
+        console.error("Central dashboard synchronization error:", error);
+        
+        // Soft fallback: If your second computer is turned off, mark badges as Standby/Offline
+        ["jivan-status", "haven-status", "rubybot-status"].forEach(id => {
+            let el = document.getElementById(id);
+            if (el) {
+                el.className = "status-badge offline";
+                el.innerText = "○ Standby";
+            }
+        });
+    }
+}
+
+// Automatically poll your permanent local link every 20 seconds
+setInterval(syncDashboardData, 20000);
+window.addEventListener('DOMContentLoaded', syncDashboardData);
 // ==========================================
 // 3. CORE TELEMETRY SYNCRONIZATION ENGINE
 // ==========================================
