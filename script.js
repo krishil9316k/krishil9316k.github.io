@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('appear');
-                observer.unobserve(entry.target); 
+                appearanceObserver.unobserve(entry.target); 
             }
         });
     }, appearanceOptions);
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 2. LIVE BOT DATA STREAM ENDPOINTS (Permanent ngrok Link)
+// 2. LIVE BOT DATA STREAM ENDPOINT (Permanent ngrok Link)
 // ==========================================
 const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
 
