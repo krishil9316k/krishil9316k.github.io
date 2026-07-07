@@ -33,7 +33,12 @@ const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
 // ==========================================
 async function syncDashboardData() {
     try {
-        let res = await fetch(CENTRAL_API);
+        // We add the ngrok-skip-browser-warning header so ngrok sends raw JSON instead of an HTML warning page
+        let res = await fetch(CENTRAL_API, {
+            headers: {
+                "ngrok-skip-browser-warning": "69420"
+            }
+        });
         if (!res.ok) throw new Error(`HTTP Error Status: ${res.status}`);
         let data = await res.json();
         
