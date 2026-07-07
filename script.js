@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('appear');
-                observer.unobserve(entry.target); // Stops observing once animated
+                observer.unobserve(entry.target); 
             }
         });
     }, appearanceOptions);
@@ -24,130 +24,66 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 2. LIVE BOT DATA STREAM ENDPOINTS (LOCAL_TUNNEL Links)
+// 2. LIVE BOT DATA STREAM ENDPOINTS (Permanent ngrok Link)
 // ==========================================
-// Point your entire dashboard feed directly to your new permanent ngrok dev link
 const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
 
+// ==========================================
+// 3. CORE TELEMETRY SYNCHRONIZATION ENGINE
+// ==========================================
 async function syncDashboardData() {
     try {
         let res = await fetch(CENTRAL_API);
         if (!res.ok) throw new Error(`HTTP Error Status: ${res.status}`);
         let data = await res.json();
         
-        // --- UPDATE DISCORD MUSIC CORE (JIVANROSHNI) ---
-        let jivanBadge = document.getElementById("jivan-status"); // Ensure this matches your HTML element ID
-        if (jivanBadge) {
-            jivanBadge.className = "status-badge online";
-            jivanBadge.innerText = "● Online";
+        // --- 1. SYNC MULTIMODAL AI AGENT: RUBY AI ---
+        let rubyBadge = document.getElementById("ruby-status");
+        if (rubyBadge && data.ruby) {
+            rubyBadge.className = "status-badge online";
+            rubyBadge.innerText = "● Active";
+            document.getElementById("ruby-orb").innerText = data.ruby.orbState || "IDLE";
         }
-        document.getElementById("jivan-filter").innerText = data.jivan.filter;
-        // Update other metrics like guilds or member counts here if your HTML supports them
 
-        // --- UPDATE TYCOON ENGINE (HAVEN IMPERIUM) ---
+        // --- 2. SYNC DISCORD MUSIC CORE: JIVANROSHNI ---
+        let jivanBadge = document.getElementById("jivan-status");
+        if (jivanBadge && data.jivan) {
+            jivanBadge.className = "status-badge online";
+            jivanBadge.innerText = "● Streaming";
+            document.getElementById("jivan-filter").innerText = data.jivan.filter || "OFF";
+            document.getElementById("jivan-vc").innerText = data.jivan.vcName || "--";
+        }
+
+        // --- 3. SYNC COMMUNITY TYCOON ENGINE: HAVEN IMPERIUM ---
         let havenBadge = document.getElementById("haven-status");
-        if (havenBadge) {
+        if (havenBadge && data.haven) {
             havenBadge.className = "status-badge online";
             havenBadge.innerText = "● Online";
+            document.getElementById("haven-coins").innerText = data.haven.totalCoins || "0";
+            document.getElementById("haven-tickets").innerText = data.haven.activeTickets || "0";
+            document.getElementById("haven-servers").innerText = data.haven.guilds || "0";
         }
-        document.getElementById("haven-coins").innerText = data.haven.totalCoins;
-        document.getElementById("haven-servers").innerText = data.haven.guilds;
 
-        // --- UPDATE BUSINESS AUTOMATION (RUBY DISCORD BOT) ---
+        // --- 4. SYNC BUSINESS AUTOMATION: RUBY DISCORD BOT ---
         let rubybotBadge = document.getElementById("rubybot-status");
-        if (rubybotBadge) {
+        if (rubybotBadge && data.rubybot) {
             rubybotBadge.className = "status-badge online";
             rubybotBadge.innerText = "● Online";
+            document.getElementById("rubybot-queues").innerText = data.rubybot.activeQueues || "0";
+            document.getElementById("rubybot-users").innerText = data.rubybot.memberCount || "0";
         }
-        document.getElementById("rubybot-queues").innerText = data.rubybot.activeQueues;
-        document.getElementById("rubybot-users").innerText = data.rubybot.memberCount;
 
     } catch (error) {
         console.error("Central dashboard synchronization error:", error);
         
-        // Soft fallback: If your second computer is turned off, mark badges as Standby/Offline
-        ["jivan-status", "haven-status", "rubybot-status"].forEach(id => {
+        // Fallback layout if your hub computer or tunnel is shut off
+        ["ruby-status", "jivan-status", "haven-status", "rubybot-status"].forEach(id => {
             let el = document.getElementById(id);
             if (el) {
                 el.className = "status-badge offline";
-                el.innerText = "○ Standby";
+                el.innerText = "○ Offline";
             }
         });
-    }
-}
-
-// Automatically poll your permanent local link every 20 seconds
-setInterval(syncDashboardData, 20000);
-window.addEventListener('DOMContentLoaded', syncDashboardData);
-// ==========================================
-// 3. CORE TELEMETRY SYNCRONIZATION ENGINE
-// ==========================================
-async function syncDashboardData() {
-    
-    // --- SYNC MULTIMODAL AI AGENT: RUBY AI ---
-    try {
-        let res = await fetch(METRIC_ENDPOINTS.ruby);
-        let data = await res.json();
-        let el = document.getElementById("ruby-status");
-        el.className = "status-badge online";
-        el.innerText = "● Active";
-        document.getElementById("ruby-orb").innerText = data.orbState || "LISTENING";
-    } catch(e) {
-        console.log("Ruby AI Telemetry offline.");
-    }
-
-    // --- SYNC DISCORD MUSIC CORE: JIVANROSHNI ---
-    try {
-        let res = await fetch(METRIC_ENDPOINTS.jivan);
-        let data = await res.json();
-        let el = document.getElementById("jivan-status");
-        el.className = "status-badge online";
-        el.innerText = "● Streaming";
-        document.getElementById("jivan-filter").innerText = data.filter || "BASSBOOST";
-        document.getElementById("jivan-vc").innerText = data.vcName || "Active";
-    } catch(e) {
-        console.log("Jivanroshni Telemetry offline.");
-    }
-
-    // --- SYNC COMMUNITY TYCOON ENGINE: HAVEN IMPERIUM ---
-    try {
-        let res = await fetch(METRIC_ENDPOINTS.haven);
-        if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
-        
-        let data = await res.json();
-        
-        let el = document.getElementById("haven-status");
-        el.className = "status-badge online";
-        el.innerText = "● Online";
-        
-        document.getElementById("haven-coins").innerText = data.totalCoins || "0";
-        document.getElementById("haven-tickets").innerText = data.activeTickets || "0";
-        document.getElementById("haven-servers").innerText = data.guilds || "0";
-    } catch(e) {
-        console.error("Haven Imperium Fetch Failed:", e);
-        let el = document.getElementById("haven-status");
-        el.className = "status-badge offline";
-        el.innerText = "○ Offline";
-    }
-
-    // --- SYNC BUSINESS AUTOMATION: RUBY DISCORD BOT ---
-    try {
-        let res = await fetch(METRIC_ENDPOINTS.rubybot);
-        if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
-        
-        let data = await res.json();
-        
-        let el = document.getElementById("rubybot-status");
-        el.className = "status-badge online";
-        el.innerText = "● Online";
-        
-        document.getElementById("rubybot-queues").innerText = data.activeQueues || "0";
-        document.getElementById("rubybot-users").innerText = data.memberCount || "0";
-    } catch(e) {
-        console.error("Ruby Discord Bot Fetch Failed:", e);
-        let el = document.getElementById("rubybot-status");
-        el.className = "status-badge offline";
-        el.innerText = "○ Offline";
     }
 }
 
