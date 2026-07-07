@@ -1,4 +1,6 @@
-// Simple Scroll Animation Hook
+// ==========================================
+// 1. SIMPLE SCROLL ANIMATION INTERSECTION HOOK
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     const animatedBoxes = document.querySelectorAll('.animate-box');
 
@@ -20,56 +22,93 @@ document.addEventListener("DOMContentLoaded", () => {
         appearanceObserver.observe(box);
     });
 });
+
+// ==========================================
+// 2. LIVE BOT DATA STREAM ENDPOINTS (LOCAL_TUNNEL Links)
+// ==========================================
 const METRIC_ENDPOINTS = {
     ruby: "https://your-ruby-server.com/status",
-    jivan: "https://your-jivanroshni-server.com/status",
-    haven: "https://petite-paws-push.loca.lt/status", // 👈 Haven Imperium is locked in!
+    jivan: "https://sweet-rabbits-enter.loca.lt/status", // üí™ JIVANROSHNI link updated!
+    haven: "https://petite-paws-push.loca.lt/status", 
     rubybot: "https://petite-cases-carry.loca.lt/status"
 };
 
+// ==========================================
+// 3. CORE TELEMETRY SYNCRONIZATION ENGINE
+// ==========================================
 async function syncDashboardData() {
-    // Sync RUBY AI
+    
+    // --- SYNC MULTIMODAL AI AGENT: RUBY AI ---
     try {
         let res = await fetch(METRIC_ENDPOINTS.ruby);
         let data = await res.json();
-        document.getElementById("ruby-status").className = "status-badge online";
-        document.getElementById("ruby-status").innerText = "● Active";
+        let el = document.getElementById("ruby-status");
+        el.className = "status-badge online";
+        el.innerText = "● Active";
         document.getElementById("ruby-orb").innerText = data.orbState || "LISTENING";
-    } catch(e) {}
+    } catch(e) {
+        console.log("Ruby AI Telemetry offline.");
+    }
 
-    // Sync JIVANROSHNI
+    // --- SYNC DISCORD MUSIC CORE: JIVANROSHNI ---
     try {
         let res = await fetch(METRIC_ENDPOINTS.jivan);
         let data = await res.json();
-        document.getElementById("jivan-status").className = "status-badge online";
-        document.getElementById("jivan-status").innerText = "● Streaming";
+        let el = document.getElementById("jivan-status");
+        el.className = "status-badge online";
+        el.innerText = "● Streaming";
         document.getElementById("jivan-filter").innerText = data.filter || "BASSBOOST";
         document.getElementById("jivan-vc").innerText = data.vcName || "Active";
-    } catch(e) {}
+    } catch(e) {
+        console.log("Jivanroshni Telemetry offline.");
+    }
 
-    // Sync HAVEN IMPERIUM
+    // --- SYNC COMMUNITY TYCOON ENGINE: HAVEN IMPERIUM ---
     try {
         let res = await fetch(METRIC_ENDPOINTS.haven);
+        if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
+        
         let data = await res.json();
-        document.getElementById("haven-status").className = "status-badge online";
-        document.getElementById("haven-status").innerText = "● Online";
-        document.getElementById("haven-coins").innerText = data.totalCoins || "1.2M";
+        
+        let el = document.getElementById("haven-status");
+        el.className = "status-badge online";
+        el.innerText = "● Online";
+        
+        document.getElementById("haven-coins").innerText = data.totalCoins || "0";
         document.getElementById("haven-tickets").innerText = data.activeTickets || "0";
-        document.getElementById("haven-servers").innerText = data.guilds || "1";
-    } catch(e) {}
+        document.getElementById("haven-servers").innerText = data.guilds || "0";
+    } catch(e) {
+        console.error("Haven Imperium Fetch Failed:", e);
+        let el = document.getElementById("haven-status");
+        el.className = "status-badge offline";
+        el.innerText = "○ Offline";
+    }
 
-    // Sync RUBY DISCORD BOT
+    // --- SYNC BUSINESS AUTOMATION: RUBY DISCORD BOT ---
     try {
         let res = await fetch(METRIC_ENDPOINTS.rubybot);
+        if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
+        
         let data = await res.json();
-        document.getElementById("rubybot-status").className = "status-badge online";
-        document.getElementById("rubybot-status").innerText = "● Online";
+        
+        let el = document.getElementById("rubybot-status");
+        el.className = "status-badge online";
+        el.innerText = "● Online";
+        
         document.getElementById("rubybot-queues").innerText = data.activeQueues || "0";
-        document.getElementById("rubybot-users").innerText = data.memberCount || "150";
-    } catch(e) {}
+        document.getElementById("rubybot-users").innerText = data.memberCount || "0";
+    } catch(e) {
+        console.error("Ruby Discord Bot Fetch Failed:", e);
+        let el = document.getElementById("rubybot-status");
+        el.className = "status-badge offline";
+        el.innerText = "○ Offline";
+    }
 }
 
+// ==========================================
+// 4. AUTOMATIC POLLING INITIALIZER
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     syncDashboardData();
-    setInterval(syncDashboardData, 15000); // Poll tracking parameters every 15s
+    setInterval(syncDashboardData, 15000); // Check tracking parameters every 15 seconds
 });
