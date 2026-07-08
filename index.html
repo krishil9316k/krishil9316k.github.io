@@ -14,6 +14,7 @@
         <nav>
             <a href="#hero">Home</a>
             <a href="#robotics">Robotics</a>
+            <a href="#story">Story</a>
             <a href="#bots">Bots</a>
             <a href="#skills">Skills</a>
         </nav>
@@ -67,142 +68,184 @@
         </div>
     </section>
 
+    <section id="story" class="section">
+        <h2 class="section-title">My Journey</h2>
+        <div class="grid-container">
+            
+            <div class="project-card animate-box">
+                <div class="media-container" style="height: 280px;">
+                    <img src="c:\Users\varsh\Downloads\20250924_132544.jpg" alt="Krishil" onerror="this.src='https://via.placeholder.com/600x400/240B36/00D2FF?text=KRISHIL'">
+                </div>
+                <div class="card-content">
+                    <h3>About Me</h3>
+                    <p>
+                        Based out of Gujarat, my obsession with computers, electronics, and coding started when I was just a child. What began as curiosity quickly turned into a passion for engineering. 
+                    </p>
+                    <p>
+                        Over the years, I have built countless projects spanning across automated machines, custom electronics circuits, and deep software architectures, constantly pushing the boundaries of what software and hardware can do together.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card animate-box" style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="card-content">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 25px;"><i class="fa-solid fa-quote-left"></i> Philosophy</h3>
+                    
+                    <blockquote style="border-left: 3px solid var(--accent-purple); padding-left: 15px; margin-bottom: 30px;">
+                        <p style="font-style: italic; font-size: 16px; color: var(--text-white);">
+                            "If the infrastructure doesn't exist to host your vision, you build the hub from scratch on port 3000."
+                        </p>
+                        <cite style="display: block; font-size: 12px; color: var(--text-muted); margin-top: 5px; font-weight: 600;">— KRISHIL</cite>
+                    </blockquote>
+
+                    <blockquote style="border-left: 3px solid var(--accent-cyan); padding-left: 15px;">
+                        <p style="font-style: italic; font-size: 16px; color: var(--text-white);">
+                            "Hardware limits what you can physically touch; autonomous software limits nothing."
+                        </p>
+                        <cite style="display: block; font-size: 12px; color: var(--text-muted); margin-top: 5px; font-weight: 600;">— PROTOCOL DEV</cite>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="bots" class="section">
-    <h2 class="section-title">Intelligent Bot Matrix</h2>
-    <p class="section-subtitle">Real-time telemetry feeds from my active deployed agents and systems.</p>
-    
-    <div class="grid-container">
+        <h2 class="section-title">Intelligent Bot Matrix</h2>
+        <p class="section-subtitle">Real-time telemetry feeds from my active deployed agents and systems.</p>
+        
+        <div class="grid-container">
 
-        <div class="bot-card animate-box">
-            <div class="bot-header">
-                <div class="bot-type-tags">
-                    <i class="fa-solid fa-brain bot-icon ai-glow"></i>
-                    <span class="bot-category">MULTIMODAL AI AGENT</span>
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-brain bot-icon ai-glow"></i>
+                        <span class="bot-category">MULTIMODAL AI AGENT</span>
+                    </div>
+                    <span id="ruby-status" class="status-badge offline">○ Offline</span>
                 </div>
-                <span id="ruby-status" class="status-badge offline">○ Offline</span>
+                <h3>RUBY AI</h3>
+                <p>Voice, camera, and screen conversational companion processing WebRTC streams. Windows app out now, Android port coming soon!</p>
+                
+                <div class="dashboard-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Orb Engine</span>
+                        <span id="ruby-orb" class="metric-value">IDLE</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Pipeline</span>
+                        <span class="metric-value" style="font-size: 11px; color:#00D2FF;">WebRTC</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Memory Ledger</span>
+                        <span class="metric-value">SQLite</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Python / Flutter</span>
+                    <span class="tag">LiveKit SDK</span>
+                    <span class="tag">Gemini Realtime</span>
+                </div>
             </div>
-            <h3>RUBY AI</h3>
-            <p>Voice, camera, and screen conversational companion processing WebRTC streams. Windows app out now, Android port coming soon!</p>
-            
-            <div class="dashboard-metrics">
-                <div class="metric-box">
-                    <span class="metric-label">Orb Engine</span>
-                    <span id="ruby-orb" class="metric-value">IDLE</span>
+
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-compact-disc bot-icon music-glow"></i>
+                        <span class="bot-category">DISCORD MUSIC CORE</span>
+                    </div>
+                    <span id="jivan-status" class="status-badge offline">○ Offline</span>
                 </div>
-                <div class="metric-box">
-                    <span class="metric-label">Pipeline</span>
-                    <span class="metric-value" style="font-size: 11px; color:#00D2FF;">WebRTC</span>
+                <h3>JIVANROSHNI</h3>
+                <p>Self-bot streaming high-fidelity audio from Spotify/SoundCloud. Cleans URL tracking data instantly.</p>
+                
+                <div class="dashboard-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Audio Effect</span>
+                        <span id="jivan-filter" class="metric-value">OFF</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Active VC</span>
+                        <span id="jivan-vc" class="metric-value">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Encryption</span>
+                        <span class="metric-value" style="font-size: 11px; color:#FF007F;">libsodium</span>
+                    </div>
                 </div>
-                <div class="metric-box">
-                    <span class="metric-label">Memory Ledger</span>
-                    <span class="metric-value">SQLite</span>
+                <div class="tags">
+                    <span class="tag">Node.js ESM</span>
+                    <span class="tag">Discord.js v14</span>
+                    <span class="tag">FFmpeg Processing</span>
                 </div>
             </div>
-            <div class="tags">
-                <span class="tag">Python / Flutter</span>
-                <span class="tag">LiveKit SDK</span>
-                <span class="tag">Gemini Realtime</span>
+
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-shield-halved bot-icon discord-glow"></i>
+                        <span class="bot-category">COMMUNITY TYCOON ENGINE</span>
+                    </div>
+                    <span id="haven-status" class="status-badge offline">○ Offline</span>
+                </div>
+                <h3>Haven Imperium</h3>
+                <p>Complete authority engine handling dynamic temporary voice channels, family lineage structures, and tier-20 science lab assets.</p>
+                
+                <div class="dashboard-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Vault Pool</span>
+                        <span id="haven-coins" class="metric-value">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Active Tickets</span>
+                        <span id="haven-tickets" class="metric-value">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Guild Count</span>
+                        <span id="haven-servers" class="metric-value">--</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">SQLite3 File</span>
+                    <span class="tag">Dynamic Voice Hooks</span>
+                </div>
             </div>
+
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-store bot-icon ruby-bot-glow"></i>
+                        <span class="bot-category">BUSINESS AUTOMATION</span>
+                    </div>
+                    <span id="rubybot-status" class="status-badge offline">○ Offline</span>
+                </div>
+                <h3>Ruby Discord Bot</h3>
+                <p>Automates customer ticket flows, product verification desks, and economy leaderboards for my Editing & Bot Sales business.</p>
+                
+                <div class="dashboard-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Queues</span>
+                        <span id="rubybot-queues" class="metric-value">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Total Users</span>
+                        <span id="rubybot-users" class="metric-value">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Action</span>
+                        <span class="metric-value"><a href="#" id="rubybot-invite" class="invite-mini-btn">Invite</a></span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Local JSON DB</span>
+                    <span class="tag">Ticket Management</span>
+                </div>
+            </div>
+
         </div>
-
-        <div class="bot-card animate-box">
-            <div class="bot-header">
-                <div class="bot-type-tags">
-                    <i class="fa-solid fa-compact-disc bot-icon music-glow"></i>
-                    <span class="bot-category">DISCORD MUSIC CORE</span>
-                </div>
-                <span id="jivan-status" class="status-badge offline">○ Offline</span>
-            </div>
-            <h3>JIVANROSHNI</h3>
-            <p>Self-bot streaming high-fidelity audio from Spotify/SoundCloud. Cleans URL tracking data instantly.</p>
-            
-            <div class="dashboard-metrics">
-                <div class="metric-box">
-                    <span class="metric-label">Audio Effect</span>
-                    <span id="jivan-filter" class="metric-value">OFF</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Active VC</span>
-                    <span id="jivan-vc" class="metric-value">--</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Encryption</span>
-                    <span class="metric-value" style="font-size: 11px; color:#FF007F;">libsodium</span>
-                </div>
-            </div>
-            <div class="tags">
-                <span class="tag">Node.js ESM</span>
-                <span class="tag">Discord.js v14</span>
-                <span class="tag">FFmpeg Processing</span>
-            </div>
-        </div>
-
-        <div class="bot-card animate-box">
-            <div class="bot-header">
-                <div class="bot-type-tags">
-                    <i class="fa-solid fa-shield-halved bot-icon discord-glow"></i>
-                    <span class="bot-category">COMMUNITY TYCOON ENGINE</span>
-                </div>
-                <span id="haven-status" class="status-badge offline">○ Offline</span>
-            </div>
-            <h3>Haven Imperium</h3>
-            <p>Complete authority engine handling dynamic temporary voice channels, family lineage structures, and tier-20 science lab assets.</p>
-            
-            <div class="dashboard-metrics">
-                <div class="metric-box">
-                    <span class="metric-label">Vault Pool</span>
-                    <span id="haven-coins" class="metric-value">--</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Active Tickets</span>
-                    <span id="haven-tickets" class="metric-value">--</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Guild Count</span>
-                    <span id="haven-servers" class="metric-value">--</span>
-                </div>
-            </div>
-            <div class="tags">
-                <span class="tag">Node.js</span>
-                <span class="tag">SQLite3 File</span>
-                <span class="tag">Dynamic Voice Hooks</span>
-            </div>
-        </div>
-
-        <div class="bot-card animate-box">
-            <div class="bot-header">
-                <div class="bot-type-tags">
-                    <i class="fa-solid fa-store bot-icon ruby-bot-glow"></i>
-                    <span class="bot-category">BUSINESS AUTOMATION</span>
-                </div>
-                <span id="rubybot-status" class="status-badge offline">○ Offline</span>
-            </div>
-            <h3>Ruby Discord Bot</h3>
-            <p>Automates customer ticket flows, product verification desks, and economy leaderboards for my Editing & Bot Sales business.</p>
-            
-            <div class="dashboard-metrics">
-                <div class="metric-box">
-                    <span class="metric-label">Queues</span>
-                    <span id="rubybot-queues" class="metric-value">--</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Total Users</span>
-                    <span id="rubybot-users" class="metric-value">--</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-label">Action</span>
-                    <span class="metric-value"><a href="#" id="rubybot-invite" class="invite-mini-btn">Invite</a></span>
-                </div>
-            </div>
-            <div class="tags">
-                <span class="tag">Node.js</span>
-                <span class="tag">Local JSON DB</span>
-                <span class="tag">Ticket Management</span>
-            </div>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <script src="script.js"></script>
 </body>

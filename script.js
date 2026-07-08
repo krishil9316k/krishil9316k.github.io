@@ -33,11 +33,8 @@ const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
 // ==========================================
 async function syncDashboardData() {
     try {
-        // We add the ngrok-skip-browser-warning header so ngrok sends raw JSON instead of an HTML warning page
         let res = await fetch(CENTRAL_API, {
-            headers: {
-                "ngrok-skip-browser-warning": "69420"
-            }
+            headers: { "ngrok-skip-browser-warning": "69420" }
         });
         if (!res.ok) throw new Error(`HTTP Error Status: ${res.status}`);
         let data = await res.json();
@@ -80,8 +77,6 @@ async function syncDashboardData() {
 
     } catch (error) {
         console.error("Central dashboard synchronization error:", error);
-        
-        // Fallback layout if your hub computer or tunnel is shut off
         ["ruby-status", "jivan-status", "haven-status", "rubybot-status"].forEach(id => {
             let el = document.getElementById(id);
             if (el) {
@@ -92,10 +87,8 @@ async function syncDashboardData() {
     }
 }
 
-// ==========================================
-// 4. AUTOMATIC POLLING INITIALIZER
-// ==========================================
+// Initializer
 document.addEventListener("DOMContentLoaded", () => {
     syncDashboardData();
-    setInterval(syncDashboardData, 15000); // Check tracking parameters every 15 seconds
+    setInterval(syncDashboardData, 15000); 
 });
