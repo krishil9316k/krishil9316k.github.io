@@ -187,7 +187,8 @@ nav a:hover {
 .media-container img, .media-container video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* <-- Change this from 'cover' to 'contain' */
+    background: #000; /* Keeps the empty space clean and dark */
 }
 
 .card-content {
